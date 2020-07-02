@@ -27,13 +27,13 @@ Now create the digit and segment data that will be passed to the object instance
   </pre>
   <br />
   In the above, variables are declared for the number of segment and digit pins, and the pin sequence for the segments and digit arrays are constructed as follows:<br />
-  1) If numbers are possible and desired, sequence the segment pins in order for the first 7 pins to display the 7 conventional segments for a number digit, that is:<br />
+  1) If numbers are possible and desired, sequence the segment pins in order for the first 7 pins to display the 7 conventional segments for a number digit, that is:
   <pre>
      A<br />
   F     B<br />
      G<br />
   E     C<br />
-     D<br />
+     D
      </pre>
   This will allow you to use a convenient number function that assumes pins arranged in that order.<br />
   2) Order digit pins from right to left.<br />
