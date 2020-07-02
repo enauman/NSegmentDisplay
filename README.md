@@ -16,6 +16,7 @@ Because displays vary in their number of multiplexed digits and segments in each
     <li>Is the display common anode or common cathode? Most are common anode, so the digit pins have positive voltage and segments are ground.</li>
   </ul>
 Now create the digit and segment data that will be passed to the object instance, as in this example:<br />
+  <img src="IMG_5969.JPG" width="300"><br />
   <pre>
     int NUM_SEG_PINS = 8;
     int NUM_DIGIT_PINS = 4;
