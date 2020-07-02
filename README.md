@@ -17,10 +17,10 @@ Because displays vary in their number of multiplexed digits and segments in each
   </ul>
 Now create the digit and segment data that will be passed to the object instance, as in this example:<br />
   <code>
-    int NUM_SEG_PINS = 8;
-int NUM_DIGIT_PINS = 4;
-int segments[] = {10, 11, 12, 6, 7, 8, 13, 9};
-int digits[] = {3, 5, 4, 2};
+    int NUM_SEG_PINS = 8;<br />
+int NUM_DIGIT_PINS = 4;<br />
+int segments[] = {10, 11, 12, 6, 7, 8, 13, 9};<br />
+int digits[] = {3, 5, 4, 2};<br />
 NSegmentDisplay disp(false, NUM_SEG_PINS, segments, NUM_DIGIT_PINS, digits);
   </code>
   <br />
