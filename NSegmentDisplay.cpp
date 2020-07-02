@@ -1,7 +1,7 @@
 #include "Arduino.h"
 #include "NSegmentDisplay.h"
 /*
-Create instance of display, argumnets:
+Create instance of display, arguments:
 1) common anode or not
 2) number of segment pins
 3) array of segment pins, first 7 in conventional order (A-F) for number segments if numbers wanted
