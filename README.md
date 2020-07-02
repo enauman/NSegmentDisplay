@@ -38,12 +38,14 @@ Now create the digit and segment data that will be passed to the object instance
   This will allow you to use a convenient number function that assumes pins arranged in that order.<br />
   2) Order digit pins from right to left.<br />
   The first argument in the display instance is true for common anode and false for common cathode.
-  ## Useful functions (so far)<br />
+	
+  ## Useful functions (so far)
   <b>disp.on(int duration)</b>: all segments on, multiplexed across all grids for even power distribution.<br />
 	<b>disp.off(int duration)</b>; all digits and segments set against LED bias<br />
 	<b>disp.blink(int speed)</b>; alternates on and off for duration passed as argument<br />
 	<b>disp.number(int d, int num)</b>; If segments are sequenced according to conventional number segment mapping (see above) will display number 0-9 on digit specified.<br />
 	<b>disp.segment(int d, int s, int duration)</b>; Turn on segment specified on digit specified.<br />
-  ## To do<br />
+	
+  ## To do
   May revise functions to be non-blocking using timing rather than delays.<br />
   Function to implement pattern maps
