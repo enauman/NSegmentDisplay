@@ -17,7 +17,7 @@ Because displays vary in their number of multiplexed digits and segments in each
   </ul>
 Now create the digit and segment data that will be passed to the object instance, as in this example:<br />
   <img src="IMG_5969.JPG" width="300"><br />
-  This dislay is only slightly non-standard because of the additional segment for the colon. It happens to be common cathode.
+  This dislay is only slightly non-standard because of the additional segments for the colon. It happens to be common cathode.
   <pre>
     int NUM_SEG_PINS = 8;
     int NUM_DIGIT_PINS = 4;
@@ -38,3 +38,12 @@ Now create the digit and segment data that will be passed to the object instance
   This will allow you to use a convenient number function that assumes pins arranged in that order.<br />
   2) Order digit pins from right to left.<br />
   The first argument in the display instance is true for common anode and false for common cathode.
+  ## Useful functions (so far)
+  <b>disp.on(int duration)</b>: all segments on, multiplexed across all grids for even power distribution.<br />
+	<b>disp.off(int duration)</b>; all digits and segments set against LED bias<br />
+	<b>disp.blink(int speed)</b>; alternates on and off for duration passed as argument
+	<b>disp.number(int d, int num)</b>; If segments are sequenced according to conventional number segment mapping (see above) will display number 0-9 on digit specified.<br />
+	<b>disp.segment(int d, int s, int duration)</b>; Turn on segment specified on digit specified.
+  ## To do
+  May revise functions to be non-blocking using timing rather than delays.<br />
+  Function to implement pattern maps
