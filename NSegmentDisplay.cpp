@@ -4,12 +4,12 @@
 Create instance of display, argumnets:
 1) common anode or not
 2) number of segment pins
-3) array of segment pins, first 7 in order for number segments if numbers wanted
-*   1
-* 6   2
-*   7
-* 5   3
-*   4 
+3) array of segment pins, first 7 in conventional order (A-F) for number segments if numbers wanted
+*   A
+* F   B
+*   G
+* E   C
+*   D 
 4) number of digit pins
 5) array of digit pins, rightmost digit first
 */
