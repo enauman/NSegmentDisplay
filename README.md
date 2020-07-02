@@ -17,6 +17,7 @@ Because displays vary in their number of multiplexed digits and segments in each
   </ul>
 Now create the digit and segment data that will be passed to the object instance, as in this example:<br />
   <img src="IMG_5969.JPG" width="300"><br />
+  This dislay is only slightly non-standard because of the additional segment for the colon. It happens to be common cathode.
   <pre>
     int NUM_SEG_PINS = 8;
     int NUM_DIGIT_PINS = 4;
@@ -25,4 +26,13 @@ Now create the digit and segment data that will be passed to the object instance
     NSegmentDisplay disp(false, NUM_SEG_PINS, segments, NUM_DIGIT_PINS, digits);
   </pre>
   <br />
-  In the above, 
+  In the above, variables are declared for the number of segment and digit pins, and the pin sequence for the segments and digit arrays are constructed as follows:<br />
+  1) If numbers are possible and desired, sequence the segment pins in order for the first 7 pins to display the 7 conventional segments for a number digit, that is:<br />
+     A<br />
+  F     B<br />
+     G<br />
+  E     C<br />
+     D<br />
+  This will allow you to use a convenient number function that assumes pins arranged in that order.<br />
+  2) Order digit pins from right to left.<br />
+  The first argument in the display instance is true for common anode and false for common cathode.
