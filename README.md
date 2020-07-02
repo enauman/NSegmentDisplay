@@ -4,3 +4,9 @@ Standard 7-segment displays can be wired with drivers and programmed with many l
 ## Where to get them
 Non-standard LED displays can be found in common discarded appliances such as microwaves and DVD/VCR players. <a href="https://metatek.blogspot.com/2020/06/hacking-non-standard-7-segment-displays.html" target="_blank">See this tutorial</a> for tips on removing them from such devices and making a game with it.
 ## Usage
+<b>Include the library</b><br />
+<code>
+  #include <NSegmentDisplay.h>
+  </code>
+  <b>Create the display instance</b><br />
+  
