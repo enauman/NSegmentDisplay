@@ -118,12 +118,54 @@ void NSegmentDisplay::number(int d, int num) {
   delay(5);
 }
 
+void NSegmentDisplay::multiDigitNumber(int num) {
+  char onesChar, tensChar, hundredsChar, thousandsChar;
+  int ones, tens, hundreds, thousands;
+  String numStr = String(num);
+
+  if (num < 10) {
+    onesChar = numStr[0];
+    ones = int(onesChar - '0');
+    number(0, ones);
+  } else if(num >=10 && num < 100) {
+    onesChar = numStr[1];
+    tensChar = numStr[0];
+    ones = int(onesChar - '0');
+    tens = int(tensChar - '0');
+    number(0, ones);
+    number(1, tens);
+  } else if(num >=100 && num < 1000) {
+    onesChar = numStr[2];
+    tensChar = numStr[1];
+    hundredsChar = numStr[0];
+    ones = int(onesChar - '0');
+    tens = int(tensChar - '0');
+    hundreds = int(hundredsChar - '0');
+    number(0, ones);
+    number(1, tens);
+    number(2, hundreds);
+  } else {
+    onesChar = numStr[3];
+    tensChar = numStr[2];
+    hundredsChar = numStr[1];
+    thousandsChar = numStr[0];
+    ones = int(onesChar - '0');
+    tens = int(tensChar - '0');
+    hundreds = int(hundredsChar - '0');
+    thousands = int(thousandsChar - '0');
+    number(0, ones);
+    number(1, tens);
+    number(2, hundreds);
+    number(3, thousands);
+  }
+}
+
 void NSegmentDisplay::crazyEights(int speed) {
   int segs[] = {0, 1, 6, 4, 3, 2, 6, 5};
   for (int i = 0; i < sizeof(segs)/sizeof(segs[0]); i++) {
     for(int j = 0; j < _numDigPins; j++) {
       segment(j, segs[i]);
-    } 
+    }
     delay(speed);
     off(1);   
   }
