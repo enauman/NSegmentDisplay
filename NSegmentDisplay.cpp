@@ -50,20 +50,6 @@ void NSegmentDisplay::blink(int speed) {
   off(speed);
 }
 
-void NSegmentDisplay::number(int d, int num) {
-  for (int i = 0; i < 7; i++) {
-    digitalWrite(_segPins[i], numbers[num][i]);
-  }
-  for (int j = 0; j < _numDigPins; j++) {
-    if (j == d) {
-      digitalWrite(_digPins[j], LOW);
-    } else {
-      digitalWrite(_digPins[j], HIGH);
-    }
-  }
-  delay(5);
-}
-
 void NSegmentDisplay::on(int duration)
 {
   for(int j = 0; j<duration / (5 * _numDigPins); j++) {
@@ -107,4 +93,18 @@ void NSegmentDisplay::off(int duration)
     }
   } 
   delay(duration);
+}
+
+void NSegmentDisplay::number(int d, int num) {
+  for (int i = 0; i < 7; i++) {
+    digitalWrite(_segPins[i], numbers[num][i]);
+  }
+  for (int j = 0; j < _numDigPins; j++) {
+    if (j == d) {
+      digitalWrite(_digPins[j], LOW);
+    } else {
+      digitalWrite(_digPins[j], HIGH);
+    }
+  }
+  delay(5);
 }
