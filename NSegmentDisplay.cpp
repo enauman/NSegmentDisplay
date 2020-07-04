@@ -1,7 +1,7 @@
 #include "Arduino.h"
 #include "NSegmentDisplay.h"
 /*
-Create instance of display, arguments:
+Create instance of display, argumnets:
 1) common anode or not
 2) number of segment pins
 3) array of segment pins, first 7 in conventional order (A-F) for number segments if numbers wanted
@@ -107,4 +107,28 @@ void NSegmentDisplay::number(int d, int num) {
     }
   }
   delay(5);
+}
+
+void NSegmentDisplay::crazyEights(int speed) {
+  int segs[] = {0, 1, 6, 4, 3, 2, 6, 5};
+  for (int i = 0; i < _numSegPins; i++) {
+    if(_common_anode) {
+      digitalWrite(_segPins[segs[i]], LOW);
+    } else {
+      digitalWrite(_segPins[segs[i]], HIGH);
+    }
+    delay(speed);
+    if(_common_anode) {
+      digitalWrite(_segPins[segs[i]], HIGH);
+    } else {
+      digitalWrite(_segPins[segs[i]], LOW);
+    }      
+  }
+  for (int i = 0; i < _numDigPins; i++) {
+    if(_common_anode) {
+      digitalWrite(_digPins[i], HIGH);
+    } else {
+      digitalWrite(_digPins[i], LOW);
+    }
+  }
 }
