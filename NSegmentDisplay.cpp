@@ -123,7 +123,7 @@ void NSegmentDisplay::crazyEights(int speed) {
   for (int i = 0; i < sizeof(segs)/sizeof(segs[0]); i++) {
     for(int j = 0; j < _numDigPins; j++) {
       segment(j, segs[i]);
-    }
+    } 
     delay(speed);
     off(1);   
   }
