@@ -44,7 +44,7 @@ Now create the digit and segment data that will be passed to the object instance
 	<code>disp.off(int duration)</code>; all digits and segments set against LED bias<br />
 	<code>disp.blink(int speed)</code>; alternates on and off for duration passed as argument<br />
 	<code>disp.segment(int d, int s, int duration)</code>; Turn on segment specified on digit specified.<br />
-	<p style="color:red;">Oops I realized the following functions only work for common cathode displays, working on fixing that...</p>
+	<p><b>Oops I realized the following functions only work for common cathode displays, working on fixing that...</b></p>
 	<code>disp.number(int d, int num)</code>; If segments are sequenced according to conventional number segment mapping (see above) will display number 0-9 on digit specified.<br />
 	<code>disp.crazyEights(int speed)</code>; Run an 8 pattern of segments on all digits, if segments are sequenced according of conventional number segment mapping (see above).
   ## To do
