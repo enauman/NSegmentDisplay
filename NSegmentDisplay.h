@@ -13,6 +13,7 @@ public:
 	void blink(int speed);
 	void number(int d, int num);
 	void segment(int d, int s, int duration);
+	void crazyEights(int speed);
 private:
 	bool _common_anode;
 	int _numSegPins;
