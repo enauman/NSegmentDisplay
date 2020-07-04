@@ -41,7 +41,7 @@ Now create the digit and segment data that will be passed to the object instance
 	
   ## Useful functions (so far)
   <b>disp.on(int duration)</b>: all segments on, multiplexed across all grids for even power distribution.<br />
-	<b>disp.off(int duration)</b>; all digits and segments set against LED bias<br />
+	<code>disp.off(int duration)</code>; all digits and segments set against LED bias<br />
 	<b>disp.blink(int speed)</b>; alternates on and off for duration passed as argument<br />
 	<b>disp.number(int d, int num)</b>; If segments are sequenced according to conventional number segment mapping (see above) will display number 0-9 on digit specified.<br />
 	<b>disp.segment(int d, int s, int duration)</b>; Turn on segment specified on digit specified.<br />
