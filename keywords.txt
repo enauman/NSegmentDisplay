@@ -4,3 +4,4 @@ off     			KEYWORD2
 blink				KEYWORD2
 number				KEYWORD2
 segment				KEYWORD2
+crazyEights			KEYWORD2
