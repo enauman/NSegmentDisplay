@@ -28,8 +28,18 @@ NSegmentDisplay::NSegmentDisplay(bool common_anode, const int numSegPins, const 
   }
 }
 
+void NSegmentDisplay::segment(int d, int s) {
+  if(_common_anode) {
+    digitalWrite(_digPins[d], HIGH);
+    digitalWrite(_segPins[s], LOW);
+  } else {
+    digitalWrite(_digPins[d], LOW);
+    digitalWrite(_segPins[s], HIGH);
+  }
+}
+
 void NSegmentDisplay::segment(int d, int s, int duration) {
-  off(1);
+  off(0);
   if(_common_anode) {
     digitalWrite(_digPins[d], HIGH);
     digitalWrite(_segPins[s], LOW);
@@ -44,34 +54,21 @@ void NSegmentDisplay::segment(int d, int s, int duration) {
     digitalWrite(_segPins[s], LOW);
   }
 }
-
-void NSegmentDisplay::blink(int speed) {
-  on(speed);
-  off(speed);
+void NSegmentDisplay::blink(int duration) {
+  on(duration);
+  off(duration);
 }
 
 void NSegmentDisplay::on(int duration)
 {
-  for(int j = 0; j<duration / (5 * _numDigPins); j++) {
-    for (int i = 0; i < _numSegPins; i++) {
-      if(_common_anode) {
-        digitalWrite(_segPins[i], LOW);
-      } else {
-        digitalWrite(_segPins[i], HIGH);
-      }
-    }
+  int multiplexDuration = 3;
+  for(int j = 0; j<duration / (multiplexDuration * _numDigPins); j++) {
     for (int i = 0; i < _numDigPins; i++) {
-      if(_common_anode) {
-        digitalWrite(_digPins[i], HIGH);
-      } else {
-        digitalWrite(_digPins[i], LOW);
+      for (int k = 0; k < _numSegPins; k++) {
+        segment(i, k);
       }
-      delay(5);
-      if(_common_anode) {
-        digitalWrite(_digPins[i], LOW);
-      } else {
-        digitalWrite(_digPins[i], HIGH);
-      }
+      delay(multiplexDuration);
+      off(0);
     } 
   } 
 }
@@ -97,13 +94,25 @@ void NSegmentDisplay::off(int duration)
 
 void NSegmentDisplay::number(int d, int num) {
   for (int i = 0; i < 7; i++) {
-    digitalWrite(_segPins[i], numbers[num][i]);
+    if(_common_anode) {
+      digitalWrite(_segPins[i], anodeNumbers[num][i]);
+    } else {
+      digitalWrite(_segPins[i], cathodeNumbers[num][i]);
+    }
   }
   for (int j = 0; j < _numDigPins; j++) {
     if (j == d) {
-      digitalWrite(_digPins[j], LOW);
+      if(_common_anode) {
+        digitalWrite(_digPins[j], HIGH);
+      } else {
+        digitalWrite(_digPins[j], LOW);
+      }
     } else {
-      digitalWrite(_digPins[j], HIGH);
+      if(_common_anode) {
+        digitalWrite(_digPins[j], LOW);
+      } else {
+        digitalWrite(_digPins[j], HIGH);
+      }
     }
   }
   delay(5);
@@ -111,24 +120,11 @@ void NSegmentDisplay::number(int d, int num) {
 
 void NSegmentDisplay::crazyEights(int speed) {
   int segs[] = {0, 1, 6, 4, 3, 2, 6, 5};
-  for (int i = 0; i < _numSegPins; i++) {
-    if(_common_anode) {
-      digitalWrite(_segPins[segs[i]], LOW);
-    } else {
-      digitalWrite(_segPins[segs[i]], HIGH);
+  for (int i = 0; i < sizeof(segs)/sizeof(segs[0]); i++) {
+    for(int j = 0; j < _numDigPins; j++) {
+      segment(j, segs[i]);
     }
     delay(speed);
-    if(_common_anode) {
-      digitalWrite(_segPins[segs[i]], HIGH);
-    } else {
-      digitalWrite(_segPins[segs[i]], LOW);
-    }      
-  }
-  for (int i = 0; i < _numDigPins; i++) {
-    if(_common_anode) {
-      digitalWrite(_digPins[i], HIGH);
-    } else {
-      digitalWrite(_digPins[i], LOW);
-    }
+    off(1);   
   }
 }
