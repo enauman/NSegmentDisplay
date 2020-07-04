@@ -40,12 +40,12 @@ Now create the digit and segment data that will be passed to the object instance
   The first argument in the display instance is true for common anode and false for common cathode.
 	
   ## Useful functions (so far)
-  <b>disp.on(int duration)</b>: all segments on, multiplexed across all grids for even power distribution.<br />
+  <code>disp.on(int duration)</code>: all segments on, multiplexed across all grids for even power distribution.<br />
 	<code>disp.off(int duration)</code>; all digits and segments set against LED bias<br />
-	<b>disp.blink(int speed)</b>; alternates on and off for duration passed as argument<br />
-	<b>disp.number(int d, int num)</b>; If segments are sequenced according to conventional number segment mapping (see above) will display number 0-9 on digit specified.<br />
-	<b>disp.segment(int d, int s, int duration)</b>; Turn on segment specified on digit specified.<br />
-	<b>disp.crazyEights(int speed)</b>; Run an 8 pattern of segments on all digits, if segments are sequenced according of conventional number segment mapping (see above).
+	<code>disp.blink(int speed)</code>; alternates on and off for duration passed as argument<br />
+	<code>disp.number(int d, int num)</code>; If segments are sequenced according to conventional number segment mapping (see above) will display number 0-9 on digit specified.<br />
+	<code>disp.segment(int d, int s, int duration)</code>; Turn on segment specified on digit specified.<br />
+	<code>disp.crazyEights(int speed)</code>; Run an 8 pattern of segments on all digits, if segments are sequenced according of conventional number segment mapping (see above).
   ## To do
   May revise functions to be non-blocking using timing rather than delays.<br />
   Function to implement pattern maps
