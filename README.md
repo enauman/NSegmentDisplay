@@ -51,7 +51,7 @@ Now create the digit and segment data that will be passed to the object instance
   ## Multiplexing different elements
   Let's say you want different multiplexed elements to alternate, like a multi-digit number to blink. You can't use a delay because the current element will be blocked at it's last multiplexed item. My solution is to use a state variable that changes via a timer condition:
   <pre>
-  byte state = 0;
+byte state = 0;
 int delayTime = 500;
 double lastChange = 0;
 void loop() {
