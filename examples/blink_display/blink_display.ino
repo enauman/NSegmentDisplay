@@ -9,6 +9,5 @@ NSegmentDisplay disp(false, NUM_SEG_PINS, segments, NUM_DIGIT_PINS, digits);
 void setup() {}
 
 void loop() {
-  disp.on(1000);
-  disp.off(1000);
+  disp.blink(1000);
 }
