@@ -47,6 +47,7 @@ Now create the digit and segment data that will be passed to the object instance
 	<code>disp.segment(int d, int s, int duration)</code>; Turn on segment specified on digit specified for given duration in ms.<br />
 	<code>disp.number(int d, int num)</code>; If segments are sequenced according to conventional number segment mapping (see above) will display number 0-9 on digit specified. On for 5 ms.<br />
 	<code>disp.multiDigitNumber(int num)</code>; If segments are sequenced according to conventional number segment mapping (see above) and digits are sequenced right to left, will display integers up to 9999, right justified. Multiplexed, 5 ms per digit.<br />
+	<code>disp.multiDigitNumber(int num, byte digit)</code>; Same as above but the right side of the number can start at the specified digit instead of  the rightmost digit.
 	<code>disp.crazyEights(int speed)</code>; Run an 8 pattern of segments on all digits, if segments are sequenced according to conventional number segment mapping (see above).
   ## Multiplexing different elements
   Let's say you want different multiplexed elements to alternate, like a multi-digit number to blink. You can't use a delay because the current element will be blocked at it's last multiplexed item. My solution is to use a state variable that changes via a timer condition:
