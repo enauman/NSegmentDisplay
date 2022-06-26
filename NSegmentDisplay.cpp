@@ -115,7 +115,7 @@ void NSegmentDisplay::number(int d, int num) {
       }
     }
   }
-  delay(5);
+  delay(3);
 }
 
 void NSegmentDisplay::multiDigitNumber(int num) {
