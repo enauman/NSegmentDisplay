@@ -13,6 +13,7 @@ public:
 	void blink(int duration);
 	void number(int d, int num);
 	void multiDigitNumber(int num);
+	void multiDigitNumber(byte digit, int num);
 	void segment(int d, int s);
 	void segment(int d, int s, int duration);
 	void crazyEights(int speed);
